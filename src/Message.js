@@ -31,5 +31,3 @@ const styles = {
 }
 
 export default Message
-
-export default Message
