@@ -16,7 +16,7 @@ class Chat extends Component {
   }
 
   componentWillMount() {
-    base.syncState('random/messages', {
+    base.syncState(`${this.props.room.name}/messages`, {
       context: this,
       state: 'messages',
       asArray: true,
@@ -37,10 +37,10 @@ class Chat extends Component {
   render() {
     return (
       <div className="Chat" style={styles}>
-        <ChatHeader  room={this.props.room}/>
-        <MessageList 
-        messages={this.state.messages} 
-        room={this.props.room}
+        <ChatHeader room={this.props.room} />
+        <MessageList
+          messages={this.state.messages}
+          room={this.props.room}
         />
         <MessageForm addMessage={this.addMessage} />
       </div>

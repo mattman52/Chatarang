@@ -4,32 +4,28 @@ import Sidebar from './Sidebar'
 import Chat from './Chat'
 
 class Main extends Component {
-
   state = {
     room: {
       name: 's2morning',
-      description: 'announcments and general use',
+      description: 'Chatter about the actual class',
     }
   }
 
-  changeArea = (channel) => {
-    const currentChannel = channel
-    this.setState({currentChannel}) 
-    console.log (currentChannel)
+  loadRoom = (room) => {
+    this.setState({ room })
   }
 
   render() {
     return (
       <div className="Main" style={styles}>
-        <Sidebar 
-        user={this.props.user} 
-        signOut={this.props.signOut}
-        channels={this.state.channels}
-        changeArea={this.changeArea}
+        <Sidebar
+          user={this.props.user}
+          signOut={this.props.signOut}
+          loadRoom={this.loadRoom}
         />
-        <Chat 
-        user={this.props.user} 
-        room={this.state.room}
+        <Chat
+          user={this.props.user}
+          room={this.state.room}
         />
       </div>
     )
