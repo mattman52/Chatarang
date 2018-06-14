@@ -6,11 +6,10 @@ import Chat from './Chat'
 class Main extends Component {
 
   state = {
-    channels: [
-      'general',
-      'random',
-    ],
-    currentChannel: 'general',
+    room: {
+      name: 's2morning',
+      description: 'announcments and general use',
+    }
   }
 
   changeArea = (channel) => {
@@ -28,7 +27,10 @@ class Main extends Component {
         channels={this.state.channels}
         changeArea={this.changeArea}
         />
-        <Chat user={this.props.user} />
+        <Chat 
+        user={this.props.user} 
+        room={this.state.room}
+        />
       </div>
     )
   }
