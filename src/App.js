@@ -36,7 +36,7 @@ class App extends Component {
       <div className="App">
         {
           this.signedIn()
-            ? <Main user={this.state.user} signOut={this.signOut} />
+            ? <Main user={this.state.user} signOut={this.signOut} channel={this.state.channel}/>
             : <SignIn handleAuth={this.handleAuth} />
         }
       </div>
