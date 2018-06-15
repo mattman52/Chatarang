@@ -7,9 +7,9 @@ const MessageList = ({ messages, room }) => {
     <div className="MessageList" style={styles.list}>
       <div className="roomAnnouncement" style={styles.announcement}>
         <h3 style={styles.h3}>
-        #{room.name}
+          #{room.name}
         </h3>
-        <p>This is the very beginning of the #{room.name}.</p>
+        <p>This is the very beginning of the #{room.name} room.</p>
       </div>
       {
         messages.map(msg => <Message key={msg.id} message={msg} />)
