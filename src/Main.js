@@ -35,7 +35,16 @@ class Main extends Component {
   }
 
   loadRoom = (roomName) => {
+    if (roomName === 'new') return null
+
     const room = this.state.rooms[roomNme]
+
+    if (room) {
+      this.setState({ room })
+    }else{
+      const realRoomName = object.keys(this.state.rooms)
+    }
+    }
     this.setState({ room })
   }
 
