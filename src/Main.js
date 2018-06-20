@@ -42,9 +42,26 @@ class Main extends Component {
     if (room) {
       this.setState({ room })
     } else {
-      const realRoomName = Object.keys(this.state.rooms)[0]
-      this.props.history.push(`/rooms/${realRoomName}`)
+      this.loadValidRoom()
     }
+  }
+
+  removeRoom = (room) => {
+    const rooms = {...this.state.rooms}
+    rooms[room.name] = null
+
+    this.setState(
+      { rooms },
+      this.loadValidRoom,
+    )
+  }
+
+  loadValidRoom = () => {
+    const realRoomName = Object.keys(this.state.rooms).find(
+      roomName => this.state.rooms[roomName]
+    )
+
+    this.props.history.push(`/rooms/${realRoomName}`)
   }
 
   render() {
@@ -53,10 +70,12 @@ class Main extends Component {
         <Sidebar
           user={this.props.user}
           signOut={this.props.signOut}
+          users={this.props.users}
         />
         <Chat
           user={this.props.user}
           room={this.state.room}
+          removeRoom={this.removeRoom}
         />
       </div>
     )
